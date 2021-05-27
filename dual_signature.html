@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="bootstrap-3.3.6/dist/css/bootstrap.min.css">
+	<script src="key.js"></script>
+	<title>Dual Signature</title>
+	
+	
+<style>
+
+
+.border1 {
+	width: 10%;
+	border-bottom: 5px solid #f55252;
+	float: left;
+}
+
+.border2 {
+	width: 20%;
+	border-bottom: 5px solid #168add;
+	float: left;
+}
+.border3 {
+	width: 70%;
+	border-bottom: 5px solid #f6c815;
+	float: left;
+}
+</style>
+
+</head>
+<body>
+	<div class="container">
+	<div class="well">
+
+ <div class="row">	 
+  <div class="col-md-11" > 	
+	<h3 style=" text-align:center; color:; font-weight: 700; letter-spacing: 0; line-height: 22px; font-size: 28px; font-family: Raleway,sans-serif;">DUAL SIGNATURE GENERATION</h3>
+  </div>
+</div>
+
+<div class="border1"></div>
+<div class="border2"></div>
+<div class="border3"></div>
+
+</div>
+<br>
+
+
+	</div>
+	<div class="col-md-4">
+        <form class="form-horizontal" onsubmit="myFunction()">
+
+			<!--header-->
+			<div class="row content">
+				<div class="col-md-8">
+            		<h4>Thông tin đơn hàng</h4><br>
+				</div>
+			</div>
+            
+			<!--body-->
+			<div class="">
+				<div class="row content">
+					<div class="col-md-3">
+						<label>Mã sản phẩm</label>
+					</div>
+					<div class="col-md-6">
+						<input class="form-control" type="text" id="orderid" required="required">
+					</div>
+				</div>
+				<br>
+				
+				<div class="row content">
+					<div class="col-md-3">
+						<label>Thông tin</label>     
+					</div>
+					<div class="col-md-6">
+						<input class="form-control" type="text" id="productid" required="required">
+					</div>
+					<div class="col-md-3">
+						<button class="btn btn-primary btn-block" type="submit" value='Submit'>Submit</button>
+					</div>
+				</div>
+				<br>
+			
+				<div class="row content">
+					<div class="col-md-3">
+						<label>Đơn giá</label>
+					</div>
+					<div class="col-md-6">
+						<input class="form-control" type="number" id="ordercost" required="required">
+					</div>
+				</div>
+			</div>
+        </form>
+		</div>
+
+		<div class="col-md-4">
+			<form class="form-horizontal" action="http://localhost:3000/dual_signature" method="GET">
+				<div class="row content">
+					<div class="col-md-8">
+						<h4>Thông tin mã hóa (OIMD)</h4><br>
+					</div>
+				</div>
+  				<textarea id="key-minh" name="message" rows="6"></textarea>
+			</form>
+		</div>
+
+    </body>
+</html>
