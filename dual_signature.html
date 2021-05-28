@@ -9,8 +9,6 @@
 	
 	
 <style>
-
-
 .border1 {
 	width: 10%;
 	border-bottom: 5px solid #f55252;
@@ -27,85 +25,226 @@
 	border-bottom: 5px solid #f6c815;
 	float: left;
 }
+
+.create-key {
+	align-items: right
+}
 </style>
 
 </head>
 <body>
+	<!--title-->
 	<div class="container">
-	<div class="well">
+		<div class="well">
+ 			<div class="row">	 
+  				<div class="col-md-11" > 	
+					<h3 style=" text-align:center; color:; font-weight: 700; letter-spacing: 0; line-height: 22px; font-size: 28px; font-family: Raleway,sans-serif;">DUAL SIGNATURE GENERATION</h3>
+  				</div>
+			</div>
 
- <div class="row">	 
-  <div class="col-md-11" > 	
-	<h3 style=" text-align:center; color:; font-weight: 700; letter-spacing: 0; line-height: 22px; font-size: 28px; font-family: Raleway,sans-serif;">DUAL SIGNATURE GENERATION</h3>
-  </div>
-</div>
-
-<div class="border1"></div>
-<div class="border2"></div>
-<div class="border3"></div>
-
-</div>
-<br>
-
-
+			<div class="border1"></div>
+			<div class="border2"></div>
+			<div class="border3"></div>
+		</div>
+		<br>
 	</div>
-	<div class="col-md-4">
-        <form class="form-horizontal" onsubmit="myFunction()">
 
+	<div class="col-md-7">
+		<div class="col-md-8">
 			<!--header-->
 			<div class="row content">
 				<div class="col-md-8">
-            		<h4>Thông tin đơn hàng</h4><br>
+					<h5 style="color:blue">Thông tin đơn hàng</h5><br>
 				</div>
 			</div>
-            
 			<!--body-->
-			<div class="">
-				<div class="row content">
-					<div class="col-md-3">
-						<label>Mã sản phẩm</label>
-					</div>
-					<div class="col-md-6">
-						<input class="form-control" type="text" id="orderid" required="required">
-					</div>
+			<div class="row content">
+				<div class="col-md-3">
+					<label>Mã sản phẩm</label>
 				</div>
-				<br>
-				
-				<div class="row content">
-					<div class="col-md-3">
-						<label>Thông tin</label>     
-					</div>
-					<div class="col-md-6">
-						<input class="form-control" type="text" id="productid" required="required">
-					</div>
-					<div class="col-md-3">
-						<button class="btn btn-primary btn-block" type="submit" value='Submit'>Submit</button>
-					</div>
-				</div>
-				<br>
-			
-				<div class="row content">
-					<div class="col-md-3">
-						<label>Đơn giá</label>
-					</div>
-					<div class="col-md-6">
-						<input class="form-control" type="number" id="ordercost" required="required">
-					</div>
+				<div class="col-md-6">
+					<input class="form-control" type="text" id="proid" required="required">
 				</div>
 			</div>
-        </form>
-		</div>
-
-		<div class="col-md-4">
-			<form class="form-horizontal" action="http://localhost:3000/dual_signature" method="GET">
-				<div class="row content">
-					<div class="col-md-8">
-						<h4>Thông tin mã hóa (OIMD)</h4><br>
-					</div>
+			<br>
+				
+			<div class="row content">
+				<div class="col-md-3">
+					<label>Thông tin</label>     
 				</div>
-  				<textarea id="key-minh" name="message" rows="6"></textarea>
-			</form>
+				<div class="col-md-6">
+					<input class="form-control" type="text" id="info" required="required">
+				</div>
+				<div class="col-md-3">
+					<button class="btn btn-primary btn-block" style="width: 70px; margin-left:20px" onclick="SHA_Order()">
+						SHA -1
+					</button>
+				</div>
+			</div>
+			<br>
+			
+			<div class="row content">
+				<div class="col-md-3">
+					<label>Đơn giá</label>
+				</div>
+				<div class="col-md-6">
+					<input class="form-control" type="number" id="cost" required="required">
+				</div>
+			</div>
 		</div>
-
-    </body>
+		<div class="col-md-4" style="margin-top: 30px">
+			<div class="row content">
+				<div class="col-md-10">
+					<h5 style="color:blue">Thông tin mã hóa (OIMD)</h5>
+				</div>
+			</div>
+			<textarea id="oimd" rows="6"></textarea>
+		</div>
+		<div class="col-md-8" style="margin-top: 30px">
+			<!--header-->
+			<div class="row content">
+				<div class="col-md-8">
+					<h5 style="color:blue">Thông tin thanh toán</h5><br>
+				</div>
+			</div>
+			<!--body-->
+			<div class="row content">
+				<div class="col-md-3">
+					<label>Họ tên</label>
+				</div>
+				<div class="col-md-6">
+					<input class="form-control" type="text" id="name" required="required">
+				</div>
+			</div>
+			<br>
+				
+			<div class="row content">
+				<div class="col-md-3">
+					<label>CMND/Hộ chiếu</label>     
+				</div>
+				<div class="col-md-6">
+					<input class="form-control" type="number" id="cmnd" required="required">
+				</div>
+				<div class="col-md-3">
+					<button class="btn btn-primary btn-block" style="width: 70px; margin-left:20px" onclick="SHA_Payment()">
+						SHA -1
+					</button>
+				</div>
+			</div>
+			<br>
+			
+			<div class="row content">
+				<div class="col-md-3">
+					<label>Số thẻ tín dụng</label>
+				</div>
+				<div class="col-md-6">
+					<input class="form-control" type="number" id="card" required="required">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4" style="margin-top:60px">
+			<div class="row content">
+				<div class="col-md-10">
+					<h5 style="color:blue">Thông tin mã hóa (PIMD)</h5>
+				</div>
+			</div>
+			<textarea id="pimd" rows="6"></textarea>
+		</div>
+	</div>
+	<div class="col-md-5">
+		<div class="col-md-2" style="margin-left:-100px; margin-top: 220px; width:80px">
+			<button class="btn btn-primary btn-block" onclick="Join()">
+				+
+			</button>
+		</div>	
+		<div class="col-md-4" style="margin-top:130px">
+			<div class="row content">
+				<div class="col-md-10">
+					<h5 style="color:blue">Kết quả</h5>
+				</div>
+			</div>
+			<textarea id="join_result" rows="6"></textarea>
+		</div>
+		<div class="col-md-2" style="margin-top:220px; width: 100px">
+			<button class="btn btn-primary btn-block" onclick="SHA_Join()">
+				SHA -1
+			</button>
+		</div>	
+		<div class="col-md-4" style="margin-top:130px">
+			<div class="row content">
+				<div class="col-md-12">
+					<h5 style="color:blue">Thông tin mã hóa (POMD)</h5>
+				</div>
+			</div>
+			<textarea id="pomd" rows="6"></textarea>
+		</div>
+	</div>
+	
+	<div class="col-md-7" style="margin-top: 30px">
+		<div class="col-md-8">
+			<!--header-->
+			<div class="row content">
+				<div class="col-md-8">
+					<h5 style="color:blue">Thuật toán RSA</h5><br>
+				</div>
+			</div>
+			<!--body-->
+			<div class="row content">
+				<div class="col-md-3">
+					<label>Độ dài khóa</label>
+				</div>
+				<div class="col-md-6">
+					<select class="form-control" id="key_len" type="text" required="required">
+						<option value="256">256</option>
+						<option value="512">512</option>
+						<option value="1024">1024</option>
+						<option value="2048">2048</option>
+					</select>
+				</div>
+			</div>
+			<br>
+			<div class="row content create-key" style="margin-left: 300px">
+				<button class="btn btn-primary btn-block" style="width: 100px" onclick="createKeys()">
+					Tạo khóa
+				</button>
+			</div>
+			
+		</div>
+		<div class="col-md-4">
+			<div class="row content">
+				<div class="col-md-10">
+					<h5 style="color:blue">Public key</h5>
+				</div>
+			</div>
+			<textarea id="public_key" rows="6"></textarea>
+		</div>
+	</div>
+	<div class="col-md-5" style="margin-top: 30px; padding-left: 30px">
+		<div class="col-md-6">
+			<div class="row content">
+				<div class="col-md-10">
+					<h5 style="color:blue">Private key</h5>
+				</div>
+			</div>
+			<textarea id="private_key" rows="6"></textarea>
+		</div>
+		<div class="col-md-6">
+			<div class="create-key" style="margin-left: 30px; margin-top:80px">
+				<button class="btn btn-primary btn-block" style="width: 100px" onclick="RSA()">
+					Mã hóa RSA
+				</button>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-10" style="margin-top: 30px">
+		<div class="col-md-6">
+			<div class="row content">
+				<div class="col-md-10">
+					<h5 style="color:blue">Chữ ký kép</h5>
+				</div>
+			</div>
+			<textarea id="dual_signature" rows="6" cols="190"></textarea>
+		</div>
+	</div>
+</body>
 </html>
